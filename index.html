@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alpha Timer</title>
+        <style>
+                @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+                body {
+                        font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+                        max-width: 1000px; /* Increase max-width for more width */
+                        margin: 0 auto;
+                        padding: 10px; /* Reduce padding for less height */
+                        background-color: var(--background-color, #0a0a1a); /* Use CSS variable for background color */
+                        color: var(--text-color, #fff); /* Use CSS variable for text color */
+                        border: 5px solid var(--highlight-color, #00f7ff); /* Use CSS variable for highlight color */
+                        border-radius: 20px;
+                        box-shadow: 0 0 20px var(--highlight-color, rgba(0, 247, 255, 0.5));
+                        animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+                }
+
+                @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                }
+
+                .container {
+                        background: rgba(255, 255, 255, 0.05);
+                        backdrop-filter: blur(10px);
+                        border-radius: 20px;
+                        padding: 20px; /* Reduce padding for less height */
+                        box-shadow: 0 0 20px var(--highlight-color, rgba(0, 128, 255, 0.2));
+                        animation: slideIn 1s ease-in-out; /* Add slide-in animation */
+                }
+
+                @keyframes slideIn {
+                        from { transform: translateY(-50px); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                }
+
+                .timer {
+                        text-align: center;
+                        font-size: 72px;
+                        margin: 20px 0; /* Reduce margin for less height */
+                        font-weight: 300; /* Use lighter font weight */
+                        color: var(--highlight-color, #00f7ff); /* Use CSS variable for highlight color */
+                        text-shadow: 0 0 20px var(--highlight-color, rgba(0, 247, 255, 0.5));
+                        animation: pulse 2s infinite; /* Add pulse animation */
+                }
+
+                @keyframes pulse {
+                        0%, 100% { transform: scale(1); }
+                        50% { transform: scale(1.1); }
+                }
+
+                .controls {
+                        text-align: center;
+                        margin: 10px 0; /* Reduce margin for less height */
+                }
+
+                button {
+                        padding: 10px 20px; /* Adjust button padding */
+                        margin: 5px;
+                        font-size: 16px;
+                        cursor: pointer;
+                        background: var(--button-gradient, linear-gradient(135deg, #00b4d8, #0077be));
+                        border: none;
+                        border-radius: 25px;
+                        color: white;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 0 15px var(--highlight-color, rgba(0, 180, 216, 0.3));
+                        font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+                        animation: bounce 1s infinite; /* Add bounce animation */
+                }
+
+                @keyframes bounce {
+                        0%, 100% { transform: translateY(0); }
+                        50% { transform: translateY(-5px); }
+                }
+
+                button:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 0 20px var(--highlight-color, rgba(0, 180, 216, 0.5));
+                }
+
+                input[type="number"], input[type="text"] {
+                        background: var(--input-background, rgba(255, 255, 255, 0.1)); /* Use CSS variable for input background */
+                        border: 1px solid var(--highlight-color, rgba(0, 247, 255, 0.3));
+                        border-radius: 15px;
+                        padding: 8px 15px;
+                        color: var(--input-text-color, #fff); /* Use CSS variable for input text color */
+                        margin: 5px;
+                        width: calc(100% - 30px); /* Make inputs responsive */
+                        font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+                        animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+                }
+
+                .task-list {
+                        margin-top: 20px; /* Reduce margin for less height */
+                        border: 2px solid var(--highlight-color, #00f7ff); /* Use CSS variable for highlight color */
+                        padding: 15px; /* Reduce padding for less height */
+                        border-radius: 15px;
+                        background: rgba(0, 0, 0, 0.1);
+                        box-shadow: 0 0 15px var(--highlight-color, rgba(0, 247, 255, 0.3));
+                        animation: slideIn 1s ease-in-out; /* Add slide-in animation */
+                }
+
+                .task {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 10px; /* Reduce padding for less height */
+                        margin: 10px 0;
+                        background: rgba(255, 255, 255, 0.05);
+                        border-radius: 15px;
+                        backdrop-filter: blur(5px);
+                        border: 1px solid var(--highlight-color, rgba(0, 247, 255, 0.1));
+                        transition: background 0.3s ease;
+                        animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+                }
+
+                .task:hover {
+                        background: var(--highlight-color, rgba(0, 247, 255, 0.1));
+                }
+
+                .completed {
+                        text-decoration: line-through;
+                        opacity: 0.5;
+                }
+
+                .settings {
+                        margin-top: 20px; /* Reduce margin for less height */
+                        background: rgba(255, 255, 255, 0.03);
+                        padding: 15px; /* Reduce padding for less height */
+                        border-radius: 15px;
+                        animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+                }
+
+                h1, h2 {
+                        color: var(--highlight-color, #00f7ff); /* Use CSS variable for highlight color */
+                        font-weight: 400; /* Use normal font weight */
+                        text-align: center;
+                        font-family: 'Roboto', Arial, sans-serif; /* Use Roboto font */
+                        animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+                }
+
+                .light-theme {
+                        --highlight-color: rgba(255, 126, 95, 1);
+                        --button-gradient: linear-gradient(135deg, #ff7e5f, #feb47b);
+                        --background-color: #ffffff;
+                        --text-color: #000000;
+                }
+
+                .light-theme .container {
+                        background: rgba(0, 0, 0, 0.05);
+                        box-shadow: 0 0 20px var(--highlight-color, rgba(0, 0, 0, 0.2));
+                }
+
+                .light-theme .timer {
+                        color: var(--highlight-color, #ff7e5f); /* Use CSS variable for highlight color */
+                        text-shadow: none;
+                }
+
+                .light-theme button {
+                        background: var(--button-gradient, linear-gradient(135deg, #ff7e5f, #feb47b));
+                        box-shadow: 0 0 15px var(--highlight-color, rgba(255, 126, 95, 0.3));
+                }
+
+                .light-theme button:hover {
+                        box-shadow: 0 0 20px var(--highlight-color, rgba(255, 126, 95, 0.5));
+                }
+
+                .light-theme input[type="number"], .light-theme input[type="text"] {
+                        background: var(--input-background, rgba(0, 0, 0, 0.1)); /* Use CSS variable for input background */
+                        border: 1px solid var(--highlight-color, rgba(255, 126, 95, 0.3));
+                        color: var(--input-text-color, #000); /* Use CSS variable for input text color */
+                }
+
+                .light-theme .task {
+                        background: rgba(0, 0, 0, 0.05);
+                        border: 1px solid var(--highlight-color, rgba(255, 126, 95, 0.1));
+                }
+
+                .light-theme .task:hover {
+                        background: var(--highlight-color, rgba(255, 126, 95, 0.1));
+                }
+
+                .light-theme h1, .light-theme h2 {
+                        color: var(--highlight-color, #ff7e5f); /* Use CSS variable for highlight color */
+                }
+
+                @media (max-width: 600px) {
+                        .timer {
+                                font-size: 48px; /* Adjust timer font size for small screens */
+                        }
+
+                        button {
+                                padding: 8px 15px; /* Adjust button padding for small screens */
+                                font-size: 14px; /* Adjust button font size for small screens */
+                        }
+
+                        .task {
+                                flex-direction: column; /* Stack task content vertically on small screens */
+                                align-items: flex-start;
+                        }
+                }
+
+                footer {
+                        text-align: center;
+                        margin-top: 20px;
+                        color: var(--highlight-color, #00f7ff); /* Use CSS variable for highlight color */
+                        animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+                }
+
+                .light-theme footer {
+                        color: var(--highlight-color, #ff7e5f); /* Use CSS variable for highlight color */
+                }
+
+                .remove-task {
+                        background: var(--button-gradient, linear-gradient(135deg, #ff4d4d, #ff1a1a));
+                        border: none;
+                        border-radius: 15px;
+                        color: white;
+                        padding: 5px 10px;
+                        margin-left: 10px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 0 10px var(--highlight-color, rgba(255, 77, 77, 0.3));
+                }
+
+                .remove-task:hover {
+                        box-shadow: 0 0 15px var(--highlight-color, rgba(255, 77, 77, 0.5));
+                }
+
+                .light-theme .remove-task {
+                        background: var(--button-gradient, linear-gradient(135deg, #ff7e5f, #feb47b));
+                        box-shadow: 0 0 10px var(--highlight-color, rgba(255, 126, 95, 0.3));
+                }
+
+                .light-theme .remove-task:hover {
+                        box-shadow: 0 0 15px var(--highlight-color, rgba(255, 126, 95, 0.5));
+                }
+        </style>
+</head>
+<body>
+        <div class="container">
+                <h1>Alpha Timer</h1>
+                <div class="timer" id="timer">25:00</div>
+                <div class="controls">
+                        <button id="start">Start</button>
+                        <button id="skip">Skip</button> <!-- Add skip button -->
+                        <button id="toggle-theme">Toggle Theme</button>
+                </div>
+                <div class="task-list" style="text-align: center;">
+                        <h2>Tasks</h2>
+                        <div id="tasks"></div>
+                        <div style="margin: 20px auto;"></div>
+                        <input type="text" id="task-input" placeholder="New task">
+                        <button id="add-task">Add Task</button>
+                </div>
+                <div class="settings">
+                        <h2>Settings</h2>
+                        <label for="work-duration">Work Duration (minutes):</label>
+                        <input type="number" id="work-duration" value="25">
+                        <br>
+                        <label for="break-duration">Break Duration (minutes):</label>
+                        <input type="number" id="break-duration" value="5">
+                </div>
+        </div>
+        <footer>
+                <p>Made by ALPHA.DEV &copy; 2025 ALPHA.DEV. All rights reserved.</p>
+        </footer>
+        <script src="timer.js"></script>
+        <script src="theme-toggle.js"></script>
+</body>
+</html>
