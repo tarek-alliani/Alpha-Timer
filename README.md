@@ -29,4 +29,4 @@ git clone https://github.com/tarek-aliani-1//Alpha-Timer.git
 2. Open index.html in your browser to start.
 
 ## License
-Licensed under the ALPHA.DEV Licenses. But U can Download And Use it Btw.
+Licensed under the ALPHA.DEV Licenses. But U can Download And Use it Locally Btw.
