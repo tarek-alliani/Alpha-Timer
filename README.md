@@ -1,6 +1,6 @@
 # Alpha Timer
 
-Alpha Timer is a Pomodoro timer to boost your productivity, tasks Managing.
+Alpha Timer is a Pomodoro timer to boost your productivity and Tasks-Managing.
 [Click To Visit Web Version](https://tarek-alliani.github.io/Alpha-Timer/)
 
 ## Features
