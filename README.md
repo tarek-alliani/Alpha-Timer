@@ -7,7 +7,7 @@ Alpha Timer is an Intelligent timer to boost productivity and task management.
 ---
 
 ## Features & Usage
-- ****Customize Durations**: Manage work and break sessions in settings (Customized Pomodoro).  
+- **Customize Durations**: Manage work and break sessions in settings (Customized Pomodoro).  
 - **Add Task**: Enter a task and click "Add Task" or press "Enter".
 - **Start Timer**: Click "Start" to begin.
 - **Complete Task**: Wait until Work session end Or skip session or Click on it to mark it as done.
