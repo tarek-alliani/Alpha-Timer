@@ -1,32 +1,23 @@
 # Alpha Timer
 
-- Alpha Timer is a Pomodoro timer to boost your productivity and Tasks-Managing.
-[Click To Visit Web Version](https://tarek-alliani.github.io/Alpha-Timer/)
+Alpha Timer is a Pomodoro timer to boost productivity and task management.
 
-## Features
+[Visit Web Version](https://tarek-alliani.github.io/Alpha-Timer/)
 
-- **Pomodoro Timer**: Effortlessly manage work and break sessions.
-- **Task Management**: Easily add, complete, and manage tasks.
-- **Custom Durations**: Set your preferred work and break times.
-- **Theme Toggle**: Switch between light and dark modes.
-- **Responsive Design**: Perfect for desktop and mobile.
+---
 
-## Usage
+## Features & Usage
+- ****Customize Durations**: Manage work and break sessions in settings.  
+- **Add Task**: Enter a task and click "Add Task" or press "Enter".
+- **Start Timer**: Click "Start" to begin.
+- **Complete Task**: Wait until Work session end Or skip session or Click on it to mark it as done.
+- **Skip Session**: Click "Skip" to bypass the current session.
+- **Task Management**: Add, complete, and organize tasks.  
+- **Custom Durations**: Set work and break times.  
+- **Toggle Theme**: Click "Toggle Theme" to switch.  
+- **Responsive Design**: Works Perfectly on all Devices.  
 
-1. **Start Timer**: Click "Start" to begin.
-2. **Skip Session**: Click "Skip" to bypass.
-3. **Add Task**: Enter a task and click "Add Task" or press "Enter".
-4. **Complete Task**: Click a task to mark it as done.
-5. **Customize Durations**: Adjust times in settings.
-6. **Toggle Theme**: Click "Toggle Theme" to switch.
+4. 
 
-## Installation
-
-1. Clone the repository:
-```sh
-git clone https://github.com/tarek-aliani-1//Alpha-Timer.git
-```
-2. Open index.html in your browser to start.
-
-## License
-Licensed under the ALPHA.DEV Licenses. But U can Download And Use it Locally Btw.
+## License  
+Licensed under **ALPHA.DEV License**.
