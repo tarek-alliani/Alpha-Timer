@@ -17,7 +17,7 @@ Alpha Timer is an Intelligent timer to boost productivity and task management.
 - **Toggle Theme**: Click "Toggle Theme" to switch.  
 - **Responsive Design**: Works Perfectly on all Devices.  
 
-4. 
+---
 
 ## License  
 Licensed under **ALPHA.DEV License**.
